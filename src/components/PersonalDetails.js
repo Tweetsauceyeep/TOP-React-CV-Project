@@ -3,22 +3,8 @@ import React, {Component} from 'react';
 class PersonalDetails extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-        name: '',
-        email: '',
-        number: '',
-    };
   }
 
-  handleChange = e => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-        [name]: value,
-    });
-  };
 
   render(){
     return(
@@ -29,26 +15,25 @@ class PersonalDetails extends Component {
             type="text"
             placeholder="Name"
             name="name"
-            value={this.state.name}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
           <input
             type="text"
             placeholder="Email"
             name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
           <input
             type="text"
             placeholder="Phone Number"
             name="number"
-            value={this.state.number}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
-          <button type="submit">Submit</button>
         </form>
-        <div>{JSON.stringify(this.state)}</div>
+        <div>{JSON.stringify(this.props)}</div>
       </div>
     )
   }

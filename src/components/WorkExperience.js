@@ -3,24 +3,7 @@ import React, {Component} from 'react';
 class WorkExperience extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      companyName: '',
-      positionTitle: '',
-      mainWork: '',
-      workLength: ''
-
-    }
   }
-
-  handleChange = e => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-        [name]: value,
-    });
-  };
 
   render() {
     return (
@@ -31,33 +14,32 @@ class WorkExperience extends Component {
             type="text"
             placeholder="Company Name"
             name="companyName"
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
           <input
             type="text"
             placeholder="Position Title"
             name="positionTitle"
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
           <input
             type="text"
             placeholder="Main Work"
             name="mainWork"
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
           <input
             type="text"
             placeholder="Work Length"
             name="workLength"
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
-          <button type="submit">Submit</button>
         </form>
-        <div>{JSON.stringify(this.state)}</div>
+        <div>{JSON.stringify(this.props.state)}</div>
       </div>
     );
   }

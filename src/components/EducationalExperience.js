@@ -3,21 +3,8 @@ import React, {Component} from 'react';
 class EducationalExperience extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      schoolName: '',
-      degree: '',
-      studyDate: '',
-    };
   }
-  handleChange = e => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value,
-    });
-  };
+
   render() {
     return (
       <div>
@@ -27,26 +14,25 @@ class EducationalExperience extends Component {
             type="text"
             placeholder="School Name"
             name="schoolName"
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
           <input
             type="text"
             placeholder="Degree"
             name="degree"
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
           <input
             type="text"
             placeholder="Date of Study"
             name="studyDate"
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           />
-          <button type="submit">Submit</button>
         </form>
-        <div>{JSON.stringify(this.state)}</div>
+        <div>{JSON.stringify(this.props)}</div>
       </div>
     );
   }
