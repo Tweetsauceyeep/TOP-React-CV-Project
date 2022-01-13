@@ -1,11 +1,11 @@
 import './App.css';
 import React, {Component} from 'react';
-import Form from './components/Form'
+import TestForm from './components/TestForm'
 
 class App extends Component {
   render(){
     return(
-      <Form/>
+      <TestForm/>
     )
   }
 }

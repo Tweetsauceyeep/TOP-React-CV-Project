@@ -9,7 +9,7 @@ class EducationalExperience extends Component {
     return (
       <div>
         <h2>Educational Experience</h2>
-        <form>
+        <form onSubmit={this.props.onSubmit}>
           <input
             type="text"
             placeholder="School Name"
@@ -31,6 +31,7 @@ class EducationalExperience extends Component {
             value={this.props.value}
             onChange={this.props.handleChange}
           />
+          <button type="submit">Submit Form</button>
         </form>
         <div>{JSON.stringify(this.props)}</div>
       </div>

@@ -9,7 +9,7 @@ class WorkExperience extends Component {
     return (
       <div className="App">
         <h2>Work Experience</h2>
-        <form>
+        <form onSubmit={this.props.onSubmit}>
           <input
             type="text"
             placeholder="Company Name"
@@ -38,6 +38,7 @@ class WorkExperience extends Component {
             value={this.props.value}
             onChange={this.props.handleChange}
           />
+          <button type="submit">Submit Form</button>
         </form>
         <div>{JSON.stringify(this.props.state)}</div>
       </div>

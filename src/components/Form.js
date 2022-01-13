@@ -7,6 +7,7 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      cv: [],
       name: '',
       email: '',
       number: '',
@@ -22,34 +23,35 @@ class Form extends Component {
   }
 
   handleChange = e => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
     this.setState({
-      [name]: value,
+      [e.target.name]: e.target.value,
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
+    this.setState({
+      cv: this.state.cv.concat(this.state),
+    });
   };
 
   render() {
     return (
       <div className="App">
-        <form onSubmit={this.handleSubmit}>
-          <PersonalDetails
-            handleChange={this.handleChange}
-            state={this.state}
-          />
-          <EducationalExperience
-            handleChange={this.handleChange}
-            state={this.state}
-          />
-          <WorkExperience handleChange={this.handleChange} state={this.state} />
-          <button type="submit">Submit Form</button>
-        </form>
-        <div>{}</div>
+        <PersonalDetails
+          handleChange={e => this.handleChange(e)}
+          state={this.state}
+          onSubmit={this.handleSubmit}
+        />
+        <EducationalExperience
+          handleChange={e => this.handleChange(e)}
+          state={this.state}
+        />
+        <WorkExperience
+          handleChange={e => this.handleChange(e)}
+          state={this.state}
+        />
+        <div>{this.state.cv}</div>
       </div>
     );
   }
