@@ -1,64 +1,42 @@
 import './App.css';
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import TestForm from './components/TestForm';
 import RenderCV from './components/DisplayCV';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    number: '',
 
-    this.state = {
-      stateComplete: false,
+    schoolName: '',
+    degree: '',
+    studyDate: '',
 
-      name: '',
-      email: '',
-      number: '',
+    companyName: '',
+    positionTitle: '',
+    mainWork: '',
+    workLength: '',
+  });
 
-      schoolName: '',
-      degree: '',
-      studyDate: '',
+  handleChange=()=>{
 
-      companyName: '',
-      positionTitle: '',
-      mainWork: '',
-      workLength: '',
-    };
   }
 
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-
-    if (this.state)
-      this.setState({
-        stateComplete: !this.state.stateComplete,
-      });
-  };
-
-  render() {
-    const buttonText = this.state.stateComplete
-      ? 'Edit Text'
-      : ' Toggle Preview';
-
-    return (
-      <div className="App">
-        <button onClick={this.handleSubmit}>{buttonText}</button>
-        {this.state.stateComplete ? (
-          <RenderCV
-            information={this.state}
-            stateComplete={this.state.stateComplete}
-          />
-        ) : (
-          <TestForm state={this.state} handleChange={this.handleChange} />
-        )}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="App">
+      <button onClick={this.handleSubmit}>{buttonText}</button>
+      <button onClick={this.resetButton}>Reset Text</button>
+      {this.state.stateComplete ? (
+        <RenderCV
+          information={this.state}
+          stateComplete={this.state.stateComplete}
+        />
+      ) : (
+        <TestForm formData={formData} handleChange={this.handleChange} />
+      )}
+    </div>
+  );
+};
 
 export default App;

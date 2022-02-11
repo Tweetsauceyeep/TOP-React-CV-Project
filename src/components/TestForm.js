@@ -16,7 +16,7 @@ class TestForm extends Component {
             type="text"
             placeholder="Name"
             name="name"
-            value={this.props.state.name}
+            value={.name}
             onChange={e => this.props.handleChange(e)}
           />
           <br />
