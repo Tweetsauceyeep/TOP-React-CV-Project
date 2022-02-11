@@ -19,24 +19,19 @@ const App = () => {
     workLength: '',
   });
 
-  handleChange=()=>{
-
-  }
-
+console.log(formData)
+  const handleChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = () => {};
+  const resetButton = () => {};
   return (
     <div className="App">
-      <button onClick={this.handleSubmit}>{buttonText}</button>
-      <button onClick={this.resetButton}>Reset Text</button>
-      {this.state.stateComplete ? (
-        <RenderCV
-          information={this.state}
-          stateComplete={this.state.stateComplete}
-        />
-      ) : (
-        <TestForm formData={formData} handleChange={this.handleChange} />
-      )}
+        <TestForm formData={formData} handleChange={handleChange} />
     </div>
   );
 };
-
 export default App;
