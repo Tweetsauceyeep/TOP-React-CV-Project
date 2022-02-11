@@ -19,18 +19,54 @@ const App = () => {
     workLength: '',
   });
 
-console.log(formData)
+  const [formComplete, setFormComplete] = useState(false);
+
   const handleChange = e => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = () => {};
-  const resetButton = () => {};
+
+  const handleSubmit = () => {
+    setFormComplete(!formComplete);
+    if (formComplete) {
+      setSubmitText('Preview');
+    }
+    if (!formComplete) {
+      setSubmitText('Edit CV');
+    }
+  };
+
+  const resetButton = () => {
+    setFormData({
+      name: '',
+      email: '',
+      number: '',
+
+      schoolName: '',
+      degree: '',
+      studyDate: '',
+
+      companyName: '',
+      positionTitle: '',
+      mainWork: '',
+      workLength: '',
+    });
+  };
+
+  const [submitText, setSubmitText] = useState('Preview CV');
+  const RenderSubmitText = () => {};
+
   return (
     <div className="App">
+      <button onClick={handleSubmit}>{submitText}</button>
+      <button onClick={resetButton}>Reset</button>
+      {formComplete ? (
+        <RenderCV information={formData} formComplete={formComplete} />
+      ) : (
         <TestForm formData={formData} handleChange={handleChange} />
+      )}
     </div>
   );
 };

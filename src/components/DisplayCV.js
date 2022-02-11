@@ -1,8 +1,8 @@
 import '../App.css';
 
-const RenderCV = ({information}) => {
+const RenderCV = ({information, formComplete}) => {
 
-  if (!this.props.stateComplete) {
+  if (!formComplete) {
     return null;
   } else {
     return (
